@@ -1,0 +1,137 @@
+/* ── FONTS ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── TOKENS ── */
+:root {
+  --bg-primary:    #0F1117;
+  --bg-secondary:  #161B27;
+  --bg-card:       #1C2333;
+  --bg-card-hover: #212840;
+  --border:        #2A3350;
+  --border-light:  #1E2A42;
+
+  --text-primary:  #919ab1;
+  --text-secondary:#5d74b4;
+  --text-muted:    #556080;
+
+  --accent:        #4F7FFF;
+  --accent-glow:   rgba(79,127,255,0.15);
+  --accent-soft:   rgba(79,127,255,0.08);
+
+  --risk-critical: #FF4B6E;
+  --risk-high:     #FF8C42;
+  --risk-medium:   #FFD166;
+  --risk-low:      #06D6A0;
+
+  --risk-critical-bg: rgba(255,75,110,0.08);
+  --risk-high-bg:     rgba(255,140,66,0.08);
+  --risk-medium-bg:   rgba(255,209,102,0.08);
+  --risk-low-bg:      rgba(6,214,160,0.08);
+
+  --font-main: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+/* ── GLOBAL RESET ── */
+html, body, [class*="css"] {
+  font-family: var(--font-main) !important;
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── HIDE STREAMLIT CHROME ── */
+#MainMenu, footer, header { visibility: hidden; }
+.block-container {
+  padding: 2rem 2.5rem !important;
+  max-width: 1200px !important;
+}
+
+/* ── SIDEBAR ── */
+[data-testid="stSidebar"] {
+  background-color: var(--bg-secondary) !important;
+  border-right: 1px solid var(--border) !important;
+}
+[data-testid="stSidebar"] * { color: var(--text-primary) !important; }
+[data-testid="stSidebarNav"] a {
+  border-radius: var(--radius-sm) !important;
+  margin: 2px 0 !important;
+  padding: 8px 12px !important;
+  transition: background 0.2s;
+}
+[data-testid="stSidebarNav"] a:hover {
+  background: var(--accent-soft) !important;
+}
+
+/* ── INPUTS ── */
+[data-testid="stSelectbox"] > div > div,
+[data-testid="stNumberInput"] input,
+[data-testid="stTextInput"] input {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-sm) !important;
+  font-family: var(--font-main) !important;
+}
+[data-testid="stSelectbox"] > div > div:focus-within,
+[data-testid="stNumberInput"] input:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px var(--accent-glow) !important;
+}
+
+/* ── BUTTONS ── */
+[data-testid="stButton"] > button {
+  background: var(--accent) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  padding: 0.6rem 1.8rem !important;
+  transition: all 0.2s ease !important;
+  letter-spacing: 0.02em !important;
+}
+[data-testid="stButton"] > button:hover {
+  background: #3d6ee0 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 20px var(--accent-glow) !important;
+}
+
+/* ── SLIDERS ── */
+[data-testid="stSlider"] > div > div > div {
+  background: var(--accent) !important;
+}
+
+/* ── TABS ── */
+[data-testid="stTabs"] [role="tab"] {
+  color: var(--text-secondary) !important;
+  font-weight: 500 !important;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
+}
+[data-testid="stTabs"] [role="tab"][aria-selected="true"] {
+  color: var(--accent) !important;
+  border-bottom: 2px solid var(--accent) !important;
+  background: var(--accent-soft) !important;
+}
+
+/* ── DATAFRAME ── */
+[data-testid="stDataFrame"] {
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden !important;
+}
+
+/* ── DIVIDER ── */
+hr {
+  border-color: var(--border) !important;
+  margin: 1.5rem 0 !important;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }

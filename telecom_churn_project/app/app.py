@@ -216,3 +216,4 @@ for col, (seg, count, churn, color, bg) in zip(cols, seg_data):
             <div style="color:#556080;font-size:0.75rem">{count} customers</div>
         </div>
         """, unsafe_allow_html=True)
+        

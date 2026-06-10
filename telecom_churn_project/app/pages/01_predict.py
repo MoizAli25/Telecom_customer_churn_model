@@ -189,8 +189,8 @@ st.markdown("""
 <div style="margin-bottom:2rem">
     <div style="color:#4F7FFF;font-size:0.75rem;font-weight:600;
                 letter-spacing:0.1em;text-transform:uppercase;
-                margin-bottom:8px">Single Customer Analysis</div>
-    <h1 style="font-size:1.8rem;font-weight:700;color:#707070;
+                margin-bottom:8px;margin-top:50px">Single Customer Analysis</div>
+    <h1 style="font-size:1.8rem;font-weight:700;color:#F0F4FF;
                margin:0;letter-spacing:-0.01em">Customer Churn Predictor</h1>
     <p style="color:#8B97B8;font-size:0.9rem;margin-top:6px">
         Enter customer details to generate churn probability, risk tier, and retention actions.
@@ -284,7 +284,7 @@ if submitted:
             <div style="font-size:1.4rem;font-weight:700;
                         color:{color}">{verdict}</div>
             <div style="color:#8B97B8;font-size:0.85rem;margin-top:4px">
-                Segment: <span style="color:#707070;font-weight:500">{segment}</span>
+                Segment: <span style="color:#F0F4FF;font-weight:500">{segment}</span>
             </div>
         </div>
         <div style="text-align:right">
@@ -313,7 +313,7 @@ if submitted:
                     border-radius:10px;padding:1rem;text-align:center">
             <div style="color:#8B97B8;font-size:0.72rem;text-transform:uppercase;
                         letter-spacing:0.06em;margin-bottom:6px">Segment</div>
-            <div style="color:#707070;font-size:0.85rem;
+            <div style="color:#F0F4FF;font-size:0.85rem;
                         font-weight:600">{segment.split()[0]}</div>
         </div>""", unsafe_allow_html=True)
     with m3:
@@ -322,7 +322,7 @@ if submitted:
                     border-radius:10px;padding:1rem;text-align:center">
             <div style="color:#8B97B8;font-size:0.72rem;text-transform:uppercase;
                         letter-spacing:0.06em;margin-bottom:6px">Tenure</div>
-            <div style="color:#707070;font-size:0.85rem;
+            <div style="color:#F0F4FF;font-size:0.85rem;
                         font-weight:600">{tenure} months</div>
         </div>""", unsafe_allow_html=True)
     with m4:
@@ -331,14 +331,14 @@ if submitted:
                     border-radius:10px;padding:1rem;text-align:center">
             <div style="color:#8B97B8;font-size:0.72rem;text-transform:uppercase;
                         letter-spacing:0.06em;margin-bottom:6px">Monthly</div>
-            <div style="color:#707070;font-size:0.85rem;
+            <div style="color:#F0F4FF;font-size:0.85rem;
                         font-weight:600">${monthly:.0f}</div>
         </div>""", unsafe_allow_html=True)
 
     # ── Recommendations ──
     st.markdown("""
     <div style="margin:1.5rem 0 1rem">
-        <div style="color:#707070;font-size:1rem;font-weight:600;
+        <div style="color:#F0F4FF;font-size:1rem;font-weight:600;
                     margin-bottom:4px">Retention Recommendations</div>
         <div style="color:#8B97B8;font-size:0.82rem">
             Prioritized actions based on segment and churn drivers
@@ -355,7 +355,7 @@ if submitted:
                             border-radius:10px;padding:1rem;
                             margin-bottom:0.8rem;height:110px">
                     <div style="font-size:1.2rem;margin-bottom:6px">{icon}</div>
-                    <div style="color:#707070;font-size:0.82rem;
+                    <div style="color:#F0F4FF;font-size:0.82rem;
                                 font-weight:600;margin-bottom:4px">{title}</div>
                     <div style="color:#8B97B8;font-size:0.76rem;
                                 line-height:1.4">{desc}</div>

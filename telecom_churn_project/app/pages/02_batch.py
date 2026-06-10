@@ -174,8 +174,8 @@ st.markdown("""
 <div style="margin-bottom:2rem">
     <div style="color:#4F7FFF;font-size:0.75rem;font-weight:600;
                 letter-spacing:0.1em;text-transform:uppercase;
-                margin-bottom:8px">Batch Processing</div>
-    <h1 style="font-size:1.8rem;font-weight:700;color:#4F7FFF;
+                margin-bottom:8px;margin-top:50px">Batch Processing</div>
+    <h1 style="font-size:1.8rem;font-weight:700;color:#F0F4FF;
                margin:0;letter-spacing:-0.01em">Batch Customer Analysis</h1>
     <p style="color:#8B97B8;font-size:0.9rem;margin-top:6px">
         Upload a CSV file to score multiple customers simultaneously.
@@ -187,7 +187,7 @@ st.markdown("""
 st.markdown("""
 <div style="background:#1C2333;border:1px solid #2A3350;
             border-radius:12px;padding:1.5rem;margin-bottom:1.5rem">
-    <div style="color:#4F7FFF;font-size:0.9rem;font-weight:600;
+    <div style="color:#F0F4FF;font-size:0.9rem;font-weight:600;
                 margin-bottom:0.5rem">Upload Customer Data</div>
     <div style="color:#8B97B8;font-size:0.82rem;margin-bottom:1rem">
         Upload a CSV with the same columns as the IBM Telco dataset.
@@ -258,7 +258,7 @@ if df_raw is not None:
                     padding:1.2rem 1.5rem">
             <div style="color:#8B97B8;font-size:0.72rem;text-transform:uppercase;
                         letter-spacing:0.08em;font-weight:600;margin-bottom:6px">{label}</div>
-            <div style="color:#4F7FFF;font-size:1.8rem;
+            <div style="color:#F0F4FF;font-size:1.8rem;
                         font-weight:700;line-height:1">{value}</div>
         </div>"""
 
@@ -274,7 +274,7 @@ if df_raw is not None:
 
     with col_left:
         st.markdown("""
-        <div style="color:#4F7FFF;font-size:0.9rem;font-weight:600;
+        <div style="color:#F0F4FF;font-size:0.9rem;font-weight:600;
                     margin-bottom:1rem">Risk Tier Breakdown</div>
         """, unsafe_allow_html=True)
 
@@ -289,7 +289,7 @@ if df_raw is not None:
             <div style="margin-bottom:0.7rem">
                 <div style="display:flex;justify-content:space-between;
                             margin-bottom:4px">
-                    <span style="color:#4F7FFF;font-size:0.82rem;
+                    <span style="color:#F0F4FF;font-size:0.82rem;
                                  font-weight:500">{tier}</span>
                     <span style="color:{color};font-size:0.82rem;
                                  font-weight:600">{count} ({pct:.0f}%)</span>
@@ -304,7 +304,7 @@ if df_raw is not None:
 
     with col_right:
         st.markdown("""
-        <div style="color:#4F7FFF;font-size:0.9rem;font-weight:600;
+        <div style="color:#F0F4FF;font-size:0.9rem;font-weight:600;
                     margin-bottom:1rem">Segment Distribution</div>
         """, unsafe_allow_html=True)
 
@@ -322,7 +322,7 @@ if df_raw is not None:
             <div style="margin-bottom:0.7rem">
                 <div style="display:flex;justify-content:space-between;
                             margin-bottom:4px">
-                    <span style="color:#4F7FFF;font-size:0.82rem;
+                    <span style="color:#F0F4FF;font-size:0.82rem;
                                  font-weight:500">{seg}</span>
                     <span style="color:{color};font-size:0.82rem;
                                  font-weight:600">{count} ({pct:.0f}%)</span>
@@ -338,7 +338,7 @@ if df_raw is not None:
 
     # ── Results Table ──
     st.markdown("""
-    <div style="color:#4F7FFF;font-size:0.9rem;font-weight:600;
+    <div style="color:#F0F4FF;font-size:0.9rem;font-weight:600;
                 margin-bottom:0.5rem">Customer Risk Table</div>
     <div style="color:#8B97B8;font-size:0.8rem;margin-bottom:1rem">
         Sorted by churn probability — highest risk first.
@@ -398,11 +398,11 @@ if df_raw is not None:
 
     styled = (
         display_df.style
-        .apply(lambda s: [style_risk(v) for v in s], subset=['Risk_Tier'])
-        .apply(lambda s: [style_churn(v) for v in s], subset=['Churn_Predicted'])
+        .applymap(style_risk,   subset=['Risk_Tier'])
+        .applymap(style_churn,  subset=['Churn_Predicted'])
         .set_properties(**{
             'background-color': '#1C2333',
-            'color'           : "#C4C6CC",
+            'color'           : '#F0F4FF',
             'border-color'    : '#2A3350',
             'font-size'       : '13px',
         })
@@ -428,7 +428,7 @@ else:
                 border-radius:12px;padding:3rem;text-align:center;
                 margin-top:1rem">
         <div style="font-size:2.5rem;margin-bottom:1rem">📂</div>
-        <div style="color:#4F7FFF;font-size:1rem;
+        <div style="color:#F0F4FF;font-size:1rem;
                     font-weight:600;margin-bottom:8px">No data loaded</div>
         <div style="color:#8B97B8;font-size:0.85rem;max-width:400px;margin:0 auto">
             Upload a CSV file above or enable demo mode to analyze
@@ -436,4 +436,3 @@ else:
         </div>
     </div>
     """, unsafe_allow_html=True)
-    

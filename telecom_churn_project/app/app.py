@@ -128,7 +128,7 @@ st.markdown("""
     <div style="color:#4F7FFF;font-size:0.8rem;font-weight:600;
                 letter-spacing:0.1em;text-transform:uppercase;
                 margin-bottom:10px;margin-top:50px">Telecom Customer Intelligence</div>
-    <h1 style="font-size:2.4rem;font-weight:700;color:#4F7FFF;
+    <h1 style="font-size:2.4rem;font-weight:700;color:#ffffff;
                margin:0;letter-spacing:-0.02em;line-height:1.2">
         Predict churn.<br>
         <span style="color:#4F7FFF">Act before they leave.</span>

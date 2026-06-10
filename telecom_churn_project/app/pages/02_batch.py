@@ -398,8 +398,8 @@ if df_raw is not None:
 
     styled = (
         display_df.style
-        .applymap(style_risk,   subset=['Risk_Tier'])
-        .applymap(style_churn,  subset=['Churn_Predicted'])
+        .map(style_risk,   subset=['Risk_Tier'])
+        .map(style_churn,  subset=['Churn_Predicted'])
         .set_properties(**{
             'background-color': '#1C2333',
             'color'           : '#F0F4FF',

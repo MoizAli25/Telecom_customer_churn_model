@@ -86,21 +86,21 @@ def section_header(title, subtitle=None):
     """, unsafe_allow_html=True)
 
 # ── Sidebar ──
-with st.sidebar:
-    st.markdown("""
-    <div style="padding:1rem 0 1.5rem">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-            <span style="font-size:1.5rem">⚡</span>
-            <span style="font-size:1.1rem;font-weight:700;
-                         color:#4F7FFF;letter-spacing:-0.01em">ChurnIQ</span>
-        </div>
-        <div style="color:#556080;font-size:0.75rem;
-                    padding-left:2px;letter-spacing:0.02em">
-            TELECOM INTELLIGENCE PLATFORM
-        </div>
-    </div>
-    <hr style="border-color:#2A3350;margin:0 0 1rem">
-    """, unsafe_allow_html=True)
+# with st.sidebar:
+#     st.markdown("""
+#     <div style="padding:1rem 0 1.5rem">
+#         <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+#             <span style="font-size:1.5rem">⚡</span>
+#             <span style="font-size:1.1rem;font-weight:700;
+#                          color:#4F7FFF;letter-spacing:-0.01em">ChurnIQ</span>
+#         </div>
+#         <div style="color:#556080;font-size:0.75rem;
+#                     padding-left:2px;letter-spacing:0.02em">
+#             TELECOM INTELLIGENCE PLATFORM
+#         </div>
+#     </div>
+#     <hr style="border-color:#2A3350;margin:0 0 1rem">
+#     """, unsafe_allow_html=True)
 
     # st.markdown("""
     # <div style="color:#8B97B8;font-size:0.72rem;

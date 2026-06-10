@@ -102,25 +102,25 @@ with st.sidebar:
     <hr style="border-color:#2A3350;margin:0 0 1rem">
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-    <div style="color:#8B97B8;font-size:0.72rem;
-                text-transform:uppercase;letter-spacing:0.08em;
-                font-weight:600;margin-bottom:8px">Navigation</div>
-    """, unsafe_allow_html=True)
+    # st.markdown("""
+    # <div style="color:#8B97B8;font-size:0.72rem;
+    #             text-transform:uppercase;letter-spacing:0.08em;
+    #             font-weight:600;margin-bottom:8px">Navigation</div>
+    # """, unsafe_allow_html=True)
 
-    st.page_link("app.py",             label="🏠  Overview",          )
-    st.page_link("pages/01_predict.py", label="🔍  Customer Predict",  )
-    st.page_link("pages/02_batch.py",   label="📊  Batch Analysis",    )
-    st.page_link("pages/03_insights.py",label="💡  Model Insights",    )
+    # st.page_link("app.py",             label="🏠  Overview",          )
+    # st.page_link("pages/01_predict.py", label="🔍  Customer Predict",  )
+    # st.page_link("pages/02_batch.py",   label="📊  Batch Analysis",    )
+    # st.page_link("pages/03_insights.py",label="💡  Model Insights",    )
 
-    st.markdown("<hr style='border-color:#2A3350;margin:1rem 0'>", unsafe_allow_html=True)
-    st.markdown("""
-    <div style="color:#556080;font-size:0.72rem;line-height:1.6">
-        Model: Random Forest<br>
-        AUC: 0.8327 &nbsp;|&nbsp; Recall: 0.78<br>
-        Dataset: IBM Telco (7,032 customers)
-    </div>
-    """, unsafe_allow_html=True)
+    # st.markdown("<hr style='border-color:#2A3350;margin:1rem 0'>", unsafe_allow_html=True)
+    # st.markdown("""
+    # <div style="color:#556080;font-size:0.72rem;line-height:1.6">
+    #     Model: Random Forest<br>
+    #     AUC: 0.8327 &nbsp;|&nbsp; Recall: 0.78<br>
+    #     Dataset: IBM Telco (7,032 customers)
+    # </div>
+    # """, unsafe_allow_html=True)
 
 # ── HOME PAGE ──
 st.markdown("""

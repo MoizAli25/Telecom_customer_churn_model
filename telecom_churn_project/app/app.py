@@ -8,18 +8,9 @@ st.set_page_config(
 )
 
 # ── Load CSS ──
-from pathlib import Path
-import streamlit as st
-
 def load_css():
-    css_file = Path(__file__).parent / "styles.css"
-
-    if css_file.exists():
-        with open(css_file) as f:
-            st.markdown(
-                f"<style>{f.read()}</style>",
-                unsafe_allow_html=True
-            )
+    with open("styles.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 load_css()
 
@@ -53,7 +44,7 @@ def metric_card(label, value, delta=None, color="#4F7FFF"):
         <div style="color:#8B97B8;font-size:0.75rem;
                     text-transform:uppercase;letter-spacing:0.08em;
                     font-weight:600;margin-bottom:6px">{label}</div>
-        <div style="color:#4F7FFF;font-size:1.8rem;
+        <div style="color:#F0F4FF;font-size:1.8rem;
                     font-weight:700;line-height:1">{value}</div>
         {delta_html}
     </div>
@@ -79,20 +70,20 @@ def section_header(title, subtitle=None):
     sub = f'<div style="color:#8B97B8;font-size:0.9rem;margin-top:4px">{subtitle}</div>' if subtitle else ""
     st.markdown(f"""
     <div style="margin-bottom:1.5rem">
-        <h2 style="color:#4F7FFF;font-size:1.4rem;
+        <h2 style="color:#F0F4FF;font-size:1.4rem;
                    font-weight:700;margin:0;letter-spacing:-0.01em">{title}</h2>
         {sub}
     </div>
     """, unsafe_allow_html=True)
 
-# ── Sidebar ──
+# # ── Sidebar ──
 # with st.sidebar:
 #     st.markdown("""
 #     <div style="padding:1rem 0 1.5rem">
 #         <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
 #             <span style="font-size:1.5rem">⚡</span>
 #             <span style="font-size:1.1rem;font-weight:700;
-#                          color:#4F7FFF;letter-spacing:-0.01em">ChurnIQ</span>
+#                          color:#F0F4FF;letter-spacing:-0.01em">ChurnIQ</span>
 #         </div>
 #         <div style="color:#556080;font-size:0.75rem;
 #                     padding-left:2px;letter-spacing:0.02em">
@@ -102,33 +93,33 @@ def section_header(title, subtitle=None):
 #     <hr style="border-color:#2A3350;margin:0 0 1rem">
 #     """, unsafe_allow_html=True)
 
-    # st.markdown("""
-    # <div style="color:#8B97B8;font-size:0.72rem;
-    #             text-transform:uppercase;letter-spacing:0.08em;
-    #             font-weight:600;margin-bottom:8px">Navigation</div>
-    # """, unsafe_allow_html=True)
+#     st.markdown("""
+#     <div style="color:#8B97B8;font-size:0.72rem;
+#                 text-transform:uppercase;letter-spacing:0.08em;
+#                 font-weight:600;margin-bottom:8px">Navigation</div>
+#     """, unsafe_allow_html=True)
 
-    # st.page_link("app.py",             label="🏠  Overview",          )
-    # st.page_link("pages/01_predict.py", label="🔍  Customer Predict",  )
-    # st.page_link("pages/02_batch.py",   label="📊  Batch Analysis",    )
-    # st.page_link("pages/03_insights.py",label="💡  Model Insights",    )
+#     st.page_link("app.py",             label="🏠  Overview",          )
+#     st.page_link("pages/01_predict.py", label="🔍  Customer Predict",  )
+#     st.page_link("pages/02_batch.py",   label="📊  Batch Analysis",    )
+#     st.page_link("pages/03_insights.py",label="💡  Model Insights",    )
 
-    # st.markdown("<hr style='border-color:#2A3350;margin:1rem 0'>", unsafe_allow_html=True)
-    # st.markdown("""
-    # <div style="color:#556080;font-size:0.72rem;line-height:1.6">
-    #     Model: Random Forest<br>
-    #     AUC: 0.8327 &nbsp;|&nbsp; Recall: 0.78<br>
-    #     Dataset: IBM Telco (7,032 customers)
-    # </div>
-    # """, unsafe_allow_html=True)
+#     st.markdown("<hr style='border-color:#2A3350;margin:1rem 0'>", unsafe_allow_html=True)
+#     st.markdown("""
+#     <div style="color:#556080;font-size:0.72rem;line-height:1.6">
+#         Model: Random Forest<br>
+#         AUC: 0.8327 &nbsp;|&nbsp; Recall: 0.78<br>
+#         Dataset: IBM Telco (7,032 customers)
+#     </div>
+#     """, unsafe_allow_html=True)
 
 # ── HOME PAGE ──
 st.markdown("""
 <div style="margin-bottom:2.5rem">
     <div style="color:#4F7FFF;font-size:0.8rem;font-weight:600;
                 letter-spacing:0.1em;text-transform:uppercase;
-                margin-bottom:10px;margin-top:50px">Telecom Customer Intelligence</div>
-    <h1 style="font-size:2.4rem;font-weight:700;color:#ffffff;
+                margin-bottom:10px; margin-top:50px">Telecom Customer Intelligence</div>
+    <h1 style="font-size:2.4rem;font-weight:700;color:#F0F4FF;
                margin:0;letter-spacing:-0.02em;line-height:1.2">
         Predict churn.<br>
         <span style="color:#4F7FFF">Act before they leave.</span>
@@ -162,7 +153,7 @@ with col1:
                 padding:1.5rem;height:200px">
         <div style="font-size:1.5rem;margin-bottom:10px">🔍</div>
         <div style="font-weight:600;font-size:1rem;
-                    color:#4F7FFF;margin-bottom:8px">Customer Predict</div>
+                    color:#F0F4FF;margin-bottom:8px">Customer Predict</div>
         <div style="color:#8B97B8;font-size:0.85rem;line-height:1.6">
             Enter a customer profile and get instant churn probability,
             risk tier, segment classification, and targeted retention actions.
@@ -177,7 +168,7 @@ with col2:
                 padding:1.5rem;height:200px">
         <div style="font-size:1.5rem;margin-bottom:10px">📊</div>
         <div style="font-weight:600;font-size:1rem;
-                    color:#4F7FFF;margin-bottom:8px">Batch Analysis</div>
+                    color:#F0F4FF;margin-bottom:8px">Batch Analysis</div>
         <div style="color:#8B97B8;font-size:0.85rem;line-height:1.6">
             Upload a CSV of customers and get churn predictions,
             segment assignments, and priority-ranked retention recommendations in bulk.
@@ -192,7 +183,7 @@ with col3:
                 padding:1.5rem;height:200px">
         <div style="font-size:1.5rem;margin-bottom:10px">💡</div>
         <div style="font-weight:600;font-size:1rem;
-                    color:#4F7FFF;margin-bottom:8px">Model Insights</div>
+                    color:#F0F4FF;margin-bottom:8px">Model Insights</div>
         <div style="color:#8B97B8;font-size:0.85rem;line-height:1.6">
             Explore SHAP-based feature importance, segment profiles,
             and key churn drivers with interactive visualizations.
@@ -220,9 +211,8 @@ for col, (seg, count, churn, color, bg) in zip(cols, seg_data):
                     border-radius:12px;padding:1.2rem;text-align:center">
             <div style="color:{color};font-size:1.6rem;
                         font-weight:700;line-height:1">{churn}</div>
-            <div style="color:#4F7FFF;font-size:0.78rem;
+            <div style="color:#F0F4FF;font-size:0.78rem;
                         font-weight:600;margin:6px 0 4px">{seg}</div>
             <div style="color:#556080;font-size:0.75rem">{count} customers</div>
         </div>
         """, unsafe_allow_html=True)
-        

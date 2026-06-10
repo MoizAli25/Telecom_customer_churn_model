@@ -48,8 +48,8 @@ st.markdown("""
 <div style="margin-bottom:2rem">
     <div style="color:#4F7FFF;font-size:0.75rem;font-weight:600;
                 letter-spacing:0.1em;text-transform:uppercase;
-                margin-bottom:8px">Explainable AI</div>
-    <h1 style="font-size:1.8rem;font-weight:700;color:#4F7FFF;
+                margin-bottom:8px;margin-top:50px">Explainable AI</div>
+    <h1 style="font-size:1.8rem;font-weight:700;color:#F0F4FF;
                margin:0;letter-spacing:-0.01em">Model Insights</h1>
     <p style="color:#8B97B8;font-size:0.9rem;margin-top:6px">
         Feature importance, churn drivers, and customer segment analysis.
@@ -177,8 +177,6 @@ with tab1:
 # ════════════════════════════════════════════════
 # TAB 2 — SEGMENT PROFILES
 # ════════════════════════════════════════════════
-import streamlit.components.v1 as components  # Make sure this is imported at the top
-
 with tab2:
     st.markdown("<div style='margin:1rem 0'>", unsafe_allow_html=True)
 
@@ -228,7 +226,7 @@ with tab2:
             "addons"  : "4.1",
             "longterm": "96%",
             "fiber"   : "46%",
-            "color"   : "#F8DC9A",
+            "color"   : "#FFD166",
             "bg"      : "rgba(255,209,102,0.06)",
             "priority": "🟡 Medium",
             "actions" : [
@@ -246,7 +244,7 @@ with tab2:
             "addons"  : "0.2",
             "longterm": "100%",
             "fiber"   : "2%",
-            "color"   : "#227949",
+            "color"   : "#06D6A0",
             "bg"      : "rgba(6,214,160,0.06)",
             "priority": "🟢 Low",
             "actions" : [
@@ -257,55 +255,69 @@ with tab2:
         },
     ]
 
-    # Combine everything into one absolute layout block to output cleanly
-    full_html_output = '<div style="font-family: sans-serif; background-color: transparent; display: flex; flex-direction: column; gap: 16px;">'
-
     for seg in segments:
-        actions_list_items = "".join([f"""
-        <div style="display:flex; align-items:flex-start; gap:8px; margin-bottom:6px;">
-            <div style="width:5px; height:5px; border-radius:50%; background:{seg['color']}; margin-top:6px; flex-shrink:0;"></div>
-            <div style="color:#707070; font-size:0.82rem; line-height:1.4;">{action}</div>
-        </div>""" for action in seg['actions']])
+        st.markdown(f"""
+        <div style="background:{seg['bg']};border:1px solid {seg['color']};
+                    border-radius:12px;padding:1.5rem;margin-bottom:1rem">
+            <div style="display:flex;justify-content:space-between;
+                        align-items:flex-start;flex-wrap:wrap;gap:1rem">
 
-        full_html_output += f"""
-        <div style="background:{seg['bg']}; border:1px solid {seg['color']}; border-radius:12px; padding:20px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px;">
-            <div style="flex:1; min-width:200px;">
-                <div style="color:{seg['color']}; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:6px;">
-                    {seg['priority']}
+                <div style="flex:1;min-width:200px">
+                    <div style="color:{seg['color']};font-size:0.72rem;
+                                font-weight:600;letter-spacing:0.08em;
+                                text-transform:uppercase;margin-bottom:6px">
+                        {seg['priority']}
+                    </div>
+                    <div style="color:#F0F4FF;font-size:1rem;
+                                font-weight:700;margin-bottom:12px">{seg['name']}</div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+                        <div style="background:rgba(0,0,0,0.2);border-radius:6px;padding:8px">
+                            <div style="color:#556080;font-size:0.68rem;
+                                        text-transform:uppercase;letter-spacing:0.06em">Churn Rate</div>
+                            <div style="color:{seg['color']};font-size:1.1rem;
+                                        font-weight:700">{seg['churn']}</div>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.2);border-radius:6px;padding:8px">
+                            <div style="color:#556080;font-size:0.68rem;
+                                        text-transform:uppercase;letter-spacing:0.06em">Avg Tenure</div>
+                            <div style="color:#F0F4FF;font-size:1.1rem;
+                                        font-weight:700">{seg['tenure']}</div>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.2);border-radius:6px;padding:8px">
+                            <div style="color:#556080;font-size:0.68rem;
+                                        text-transform:uppercase;letter-spacing:0.06em">Monthly</div>
+                            <div style="color:#F0F4FF;font-size:1.1rem;
+                                        font-weight:700">{seg['monthly']}</div>
+                        </div>
+                        <div style="background:rgba(0,0,0,0.2);border-radius:6px;padding:8px">
+                            <div style="color:#556080;font-size:0.68rem;
+                                        text-transform:uppercase;letter-spacing:0.06em">Avg Add-ons</div>
+                            <div style="color:#F0F4FF;font-size:1.1rem;
+                                        font-weight:700">{seg['addons']}</div>
+                        </div>
+                    </div>
                 </div>
-                <div style="color:#F0F4FF; font-size:1rem; font-weight:700; margin-bottom:12px;">{seg['name']}</div>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-                    <div style="background:rgba(0,0,0,0.2); border-radius:6px; padding:8px;">
-                        <div style="color:#556080; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em;">Churn Rate</div>
-                        <div style="color:{seg['color']}; font-size:1.1rem; font-weight:700;">{seg['churn']}</div>
+
+                <div style="flex:2;min-width:280px">
+                    <div style="color:#8B97B8;font-size:0.75rem;
+                                font-weight:600;margin-bottom:8px;
+                                text-transform:uppercase;letter-spacing:0.06em">
+                        Retention Actions
                     </div>
-                    <div style="background:rgba(0,0,0,0.2); border-radius:6px; padding:8px;">
-                        <div style="color:#556080; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em;">Avg Tenure</div>
-                        <div style="color:#F0F4FF; font-size:1.1rem; font-weight:700;">{seg['tenure']}</div>
-                    </div>
-                    <div style="background:rgba(0,0,0,0.2); border-radius:6px; padding:8px;">
-                        <div style="color:#556080; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em;">Monthly</div>
-                        <div style="color:#F0F4FF; font-size:1.1rem; font-weight:700;">{seg['monthly']}</div>
-                    </div>
-                    <div style="background:rgba(0,0,0,0.2); border-radius:6px; padding:8px;">
-                        <div style="color:#556080; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em;">Avg Add-ons</div>
-                        <div style="color:#F0F4FF; font-size:1.1rem; font-weight:700;">{seg['addons']}</div>
-                    </div>
+                    {''.join([f"""
+                    <div style="display:flex;align-items:flex-start;
+                                gap:8px;margin-bottom:6px">
+                        <div style="width:5px;height:5px;border-radius:50%;
+                                    background:{seg['color']};
+                                    margin-top:6px;flex-shrink:0"></div>
+                        <div style="color:#F0F4FF;font-size:0.82rem;
+                                    line-height:1.4">{action}</div>
+                    </div>""" for action in seg['actions']])}
                 </div>
-            </div>
-            <div style="flex:2; min-width:280px;">
-                <div style="color:#8B97B8; font-size:0.75rem; font-weight:600; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.06em;">
-                    Retention Actions
-                </div>
-                {actions_list_items}
+
             </div>
         </div>
-        """
-
-    full_html_output += "</div>"
-
-    # Serve the completed component via a native browser frame to force correct rendering
-    components.html(full_html_output, height=850, scrolling=True)
+        """, unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════
 # TAB 3 — EDA CHARTS
@@ -320,7 +332,7 @@ with tab3:
 
         plt_cfg = {
             'facecolor': '#1C2333',
-            'text_color': "#616E94",
+            'text_color': '#8B97B8',
             'grid_color': '#2A3350',
             'bar_colors': ['#4F7FFF','#FF4B6E'],
         }

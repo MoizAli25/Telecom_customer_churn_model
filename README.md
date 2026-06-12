@@ -37,10 +37,9 @@ Telecom operators face annual churn rates of 15–25% in competitive markets. Th
 ## Live Demo
 
 ```
-https://your-app-name.streamlit.app
+https://telecomcustomerchurnmodel.streamlit.app/
 ```
 
-> Replace with your Streamlit Cloud deployment URL.
 
 ---
 
